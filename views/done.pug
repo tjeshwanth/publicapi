@@ -1,0 +1,29 @@
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        link(rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" ,integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" ,crossorigin="anonymous")
+        title goRILLA
+    body
+        .jumbotron.jumbotron-fluid
+            .container
+                h1.display-4 News Engine
+                form.inline(action="/",method="POST")
+                        input.form-control-plaintext(type="text",name="query",placeholder="search here",onfocus="this.value=''")
+                        button.btn.btn-outline-dark(type="submit") search
+        
+        #article
+            -const arr = [0,1,2,3]
+            each x in [0,1,2,3,4]
+                .card-group
+                    each i in arr
+                        div.card(style="width: 18rem;")
+                            img.card-img-top(src=`${news.articles[i+x].urlToImage}` ,alt="Card image cap")
+                            div.card-body
+                                h5.card-title #{news.articles[i+x].title}
+                                p.card-text #{news.articles[i+x].content}
+                                p.card-text author: #{news.articles[i+x].author}
+                                a.btn.btn-primary(href=`${news.articles[i+x].url}`,target="_blank") read more
+        script(src="https://code.jquery.com/jquery-3.2.1.slim.min.js", integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN", crossorigin="anonymous")
+        script(src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" ,integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q", crossorigin="anonymous")
+        script(src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" ,integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" ,crossorigin="anonymous")                
